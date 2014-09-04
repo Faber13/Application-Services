@@ -1,0 +1,32 @@
+{
+    "fields": [
+        { "id": 1, "elementCode": 1  , "units": "1000s"},
+        { "id": 2, "elementCode": -1, "elementName":"Unbalanced" },
+        { "id": 3, "elementCode": 19 ,  "units": "Million tonnes"},
+        { "id": 4, "elementCode": 27 ,  "units": "Million tonnes"},
+        { "id": 5, "elementCode": 18 ,  "units": "Million tonnes"},
+        { "id": 6, "elementCode": 5 ,   "units": "Million tonnes"},
+        { "id": 7, "elementCode": 2 ,   "units": "Million Ha"},
+        { "id": 8, "elementCode": 4 ,   "units": "Tonnes/Ha"},
+        { "id": 9, "elementCode": 8 ,   "units": "Million tonnes"},
+        { "id": 10, "elementCode": 7 ,  "units": "Million tonnes"} ,
+        { "id": 11, "elementCode": 35 , "units": "Million tonnes"},
+        { "id": 12, "elementCode": 20 , "units": "Million tonnes"},
+        { "id": 13, "elementCode": 14 , "units": "Million tonnes"},
+        { "id": 14, "elementCode": 13 , "units": "Million tonnes"},
+        { "id": 15, "elementCode": 15 , "units": "Million tonnes"},
+        { "id": 16, "elementCode": 12 , "units": "Million tonnes"},
+        { "id": 17, "elementCode": 10 , "units": "Million tonnes" },
+        { "id": 18, "elementCode": 16 , "units": "Million tonnes" },
+        { "id": 19, "elementCode": -2 , "elementName": "Of Which Government", "units": "Million tonnes" },
+        { "id": 20, "elementCode": 25 , "units": "Kg/Yr"}
+    ],
+
+    "gridAttributes":{
+        "numberOfColumns" : 26,
+        "editableRows":    [9,10,13,14,16,17,18,19],
+        "calculatedRows":  [3,4,5,11,12,20],
+        "changeableRows" : [6,7,8,15]
+    }
+
+}

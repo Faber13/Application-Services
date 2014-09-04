@@ -1,0 +1,27 @@
+{
+    "editableFields": [
+        { "id": 18, "elementCode": 16 , "units": "Million tonnes" },
+        { "id": 17, "elementCode": 16 , "units": "Million tonnes" },
+        { "id": 16, "elementCode": 12 , "units": "Million tonnes"},
+        { "id": 19, "elementCode": -2 , "elementName": "Of Which Government", "units": "Million tonnes" },
+        { "id": 9, "elementCode": 8 ,   "units": "Million tonnes"},
+        { "id": 10, "elementCode": 7 ,  "units": "Million tonnes"} ,
+        { "id": 13, "elementCode": 14 , "units": "Million tonnes"},
+        { "id": 14, "elementCode": 13 , "units": "Million tonnes"}
+        ],
+
+     "changeableFields": [
+        { "id": 6, "elementCode": 5 ,   "units": "Million tonnes"},
+        { "id": 7, "elementCode": 2 ,   "units": "Million Ha"},
+        { "id": 8, "elementCode": 4 ,   "units": "Tonnes/Ha"}
+      ],
+
+    "dependencies" : [
+        { "population": 1, "unbalanced": 2, "totalSupply": 3, "domSuppl": 4, "openingStock":5,
+          "production":6, "areaHarvested":7, "yield":8, "importsITY":9, "importsNMY":10, "totUtilization":11,
+          "domUtilization":12, "foodUse":13, "feedUse":14, "otherUses":15, "exportsITY":16, "exportsNMY":17,
+          "closingStock":18, "ofWichGovernment":19, "perCapitaFoodUse":20}
+]
+
+
+}
