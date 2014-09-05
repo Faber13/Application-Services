@@ -1,5 +1,6 @@
 package org.fao.amis.dataset.services.rest;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 import javax.inject.Inject;
@@ -7,8 +8,11 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 import org.fao.amis.dataset.dao.DatasetData;
+import org.fao.amis.dataset.dao.FilterData;
 import org.fao.amis.dataset.dao.SupportData;
 import org.fao.amis.dataset.dto.*;
+import org.fao.amis.server.tools.utils.DatasourceObject;
+import org.fao.amis.server.tools.utils.YearObject;
 
 @Path("dataset")
 @Produces(MediaType.APPLICATION_JSON)
@@ -17,6 +21,7 @@ import org.fao.amis.dataset.dto.*;
 public class DatasetService {
     @Inject private DatasetData dao;
     @Inject private SupportData dao2;
+    @Inject private FilterData  filterDao;
 
 
     @POST
@@ -51,5 +56,18 @@ public class DatasetService {
     public Iterator<Object[]> getData(DatasetFilterWithDate filter) throws Exception {
         return dao2.getPreviousYearForecast(filter);
     }
+
+    @POST
+    @Path("datasource")
+    public DatasourceObject getData(FilterDatabase filter) throws Exception {
+        return filterDao.getDatabase(filter);
+    }
+
+    @POST
+    @Path("year")
+    public ArrayList<YearObject> getData(FilterYear filter) throws Exception {
+        return filterDao.getYears(filter);
+    }
+
 
 }

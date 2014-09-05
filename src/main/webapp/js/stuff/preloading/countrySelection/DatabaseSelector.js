@@ -15,13 +15,13 @@ define(["jquery", "jqwidgets"], function($) {
 
 
     DatabaseSelector.prototype.changeRadio = function(regionCode){
-        var url = "http://localhost:8081/wds/rest/amis/cbsmonthly/AMISCBS/databases/"+regionCode;
-
+        //var url = "http://localhost:8081/wds/rest/amis/cbsmonthly/AMISCBS/databases/"+regionCode;
+        var url  = "http://168.202.28.178:8080/dataset/datasource"
         var that = this;
 
         $.ajax({
             async: false,
-            type: 'GET',
+            type: 'post',
             url: url,
             success: function(data) {
                 // prepare the data
@@ -29,32 +29,23 @@ define(["jquery", "jqwidgets"], function($) {
                 {
                     datatype: "json",
                     datafields: [
-                        { name: 'tableName'},
-                        { name: 'code' },
-                        { name: 'title' }
+                        { name: 'datasource'},
                     ],
                     localdata: data
                 };
 
                 //callback
-
-                $("#labelNatDB").html(data['title']);
+                $("#labelNatDB").html(data['datasource']);
 
             }
-
         });
         radioNationDB.jqxRadioButton({ width: 120, height: 25, checked: true});
-
-
     }
 
 
     DatabaseSelector.prototype.init = function(regionCode){
 
-        var that = this
-
-        var url = "http://localhost:8081/wds/rest/amis/cbsmonthly/AMISCBS/databases/"+regionCode;
-
+        var url = "http://168.202.28.178:8080/dataset/datasource"+regionCode;
         selectedDB = $("#labelCBS").text();
         var that = this;
         $.ajax({
@@ -62,26 +53,19 @@ define(["jquery", "jqwidgets"], function($) {
             type: 'GET',
             url: url,
             success: function(data) {
-
                source = that.prepareBoxData(data)
-
                 //callback
-
                 $("#labelNatDB").html(data['title']);
             }
         });
 
-
         //radioCBS.jqxRadioButton({ width: 120, height: 25 });
-
         radioNationDB.jqxRadioButton({
             width: 120,
             height: 25,
              checked : true
         });
-
-          return selectedDB;
-
+        return selectedDB;
     }
 
 
@@ -91,8 +75,8 @@ define(["jquery", "jqwidgets"], function($) {
 
 
     DatabaseSelector.prototype.selectNational = function(event){
-        console.log("SELECT NATIONAL: "+source.localdata.tableName);
-        return source.localdata.tableName;
+        console.log("SELECT NATIONAL: "+source.localdata.datasource);
+        return source.localdata.datasource;
     }
 
 
@@ -121,7 +105,6 @@ define(["jquery", "jqwidgets"], function($) {
         };
         return source;
     }
-
 
     return DatabaseSelector;
 

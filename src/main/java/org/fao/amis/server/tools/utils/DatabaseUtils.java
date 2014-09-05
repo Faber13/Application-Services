@@ -3,6 +3,7 @@ package org.fao.amis.server.tools.utils;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 public class DatabaseUtils {
@@ -14,6 +15,30 @@ public class DatabaseUtils {
             else
                 statement.setNull(i+1, types[i]);
     }
+
+
+    public DatasourceObject getDataSource(final ResultSet source) throws SQLException {
+      DatasourceObject result = new DatasourceObject();
+      while(source.next()){
+           result.setDatasource(source.getString(1));
+      }
+
+      return result;
+    }
+
+
+    public ArrayList<YearObject> getYear (final ResultSet source) throws SQLException {
+        ArrayList<YearObject>  result = new ArrayList<YearObject>();
+        while(source.next()){
+            YearObject yearObject = new YearObject();
+            yearObject.setYearLabel(source.getString(1));
+            yearObject.setYear(source.getInt(2));
+            result.add(yearObject);
+        }
+        return result;
+    }
+
+
 
     public Iterator<Object[]> getDataIterator(final ResultSet source) throws SQLException {
         return new Iterator<Object[]>() {
