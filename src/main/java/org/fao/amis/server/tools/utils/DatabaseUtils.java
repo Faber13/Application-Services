@@ -39,6 +39,15 @@ public class DatabaseUtils {
     }
 
 
+    public String getCrops (final ResultSet source) throws  SQLException {
+        String result = null;
+        if(source.next()){
+            result = source.getString(1);
+        }
+        return result;
+    }
+
+
 
     public Iterator<Object[]> getDataIterator(final ResultSet source) throws SQLException {
         return new Iterator<Object[]>() {

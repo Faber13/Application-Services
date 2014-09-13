@@ -37,6 +37,5 @@ public class FilterData {
          statement.setInt(1,filter.getRegionCode());
          statement.setInt(2,filter.getProductCode());
          return utils.getYear(statement.executeQuery());
-
     }
 }

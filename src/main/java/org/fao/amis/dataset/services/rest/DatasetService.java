@@ -22,6 +22,7 @@ public class DatasetService {
     @Inject private DatasetData dao;
     @Inject private SupportData dao2;
     @Inject private FilterData  filterDao;
+    @Inject private FilterCrops filterCrops;
 
 
     @POST
@@ -69,5 +70,9 @@ public class DatasetService {
         return filterDao.getYears(filter);
     }
 
-
+    @POST
+    @Path("crops")
+    public String getData(FilterCrops filter) throws Exception {
+        return dao2.getCropsNumber(filter);
+    }
 }
